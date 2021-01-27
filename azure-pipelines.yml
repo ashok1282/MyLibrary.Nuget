@@ -24,7 +24,11 @@ stages:
       inputs:
         command: 'build'
         projects: '**/*.csproj'
-        arguments: '--configuration $(BuildConfiguration)'
+        arguments: '- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
 
     - task: DotNetCoreCLI@2
       inputs:
