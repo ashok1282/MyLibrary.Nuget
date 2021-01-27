@@ -1,4 +1,10 @@
 trigger:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '55041a49-1334-4807-b1b4-f8f43b3990ca'
 - master
 
 pool:
